@@ -16,12 +16,24 @@ function getQueryParameter(name) {
     return false;
 }
 
+//copy me into your script to get a query parameter
+function getQueryParameter(name)
+{
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i=0;i<vars.length;i++) {
+        var pair = vars[i].split("=");
+        if(pair[0] == name){return pair[1];}
+    }
+    return false;
+}
+
 //song rank, artist name, song name, audio preview, album name, album art //
 $(document).ready(function(){
     $("#nextSearch").hide();
 
     $("#findSongs").click(function(){
-        $.ajax({
+            $.ajax({
             url: "http://itunes.apple.com/search?term=" + $("#artist").val() + "&limit=" + $("#numbSongs").val(),
             type: 'GET',
             cressDomain: true,
@@ -36,13 +48,13 @@ $(document).ready(function(){
                 }
         });
     });
-    // $("#nextSearch").click(function(){
-    //     $("#resultTable").empty();
-    // });
-});
+    $("#nextSearch").click(function(){
+        $("#resultTable").empty();
+        });
+    });
 
 function displayResults(json){
-    $("clear").show();
+    $("#nextSearch").show();
     $("#resultTable").empty();
     var html = '<br><table class="table table-striped">';
     json.numbSongs = $("#numbSongs").val();
@@ -58,7 +70,7 @@ function displayResults(json){
         html += "</td><td>";
         html += "Album: " + json.results[i].collectionName;
         html += "</td><td>";
-        html += "<audio controls='true' src=' + json.results[i].previewUrl + ' id='audio' type='audio/m4a'></audio>";
+        html += "<audio controls='true' src='" + json.results[i].previewUrl + "' id='audio' type='audio/m4a'></audio>";
         html += "</td></tr>";
     }
     html += "</table>";

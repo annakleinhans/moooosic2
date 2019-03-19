@@ -1,0 +1,32 @@
+.dropdowns {
+    font-family: "Verdana";
+    height: 40px;
+    color: mediumvioletred;
+    position: relative;
+    left: 40px;
+}
+
+#findSongs {
+    position: relative;
+    left: 60px;
+}
+
+#numbSongs {
+    position: relative;
+    left: 50px;
+}
+
+h1 {
+    position: relative;
+    left: 40px;
+}
+
+#resultTable {
+    font-family: "Verdana";
+    color: black;
+}
+
+#nextSearch {
+    position: relative;
+    left: 80px;
+}
