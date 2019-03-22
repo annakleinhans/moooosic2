@@ -1,14 +1,16 @@
 .dropdowns {
     font-family: "Verdana";
     height: 40px;
-    color: mediumvioletred;
+    color: whitesmoke;
     position: relative;
     left: 40px;
+    background-color: mediumvioletred;
 }
 
 #findSongs {
     position: relative;
     left: 60px;
+    color: whitesmoke;
 }
 
 #numbSongs {
@@ -24,10 +26,18 @@ h1 {
 #resultTable {
     font-family: "Verdana";
     color: black;
+    position: center;
 }
 
 #nextSearch {
     position: relative;
     left: 80px;
+}
+
+#instructions {
+    align-items:center;
+    font-family: "Arial";
+    color: #5c5e61;
+    font-weight:bold;
 }
 
