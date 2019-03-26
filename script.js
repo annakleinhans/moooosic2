@@ -40,7 +40,6 @@ $(document).ready(function(){
             cressDomain: true,
             dataType: "jsonp",
             success: function (result){
-                //what does the next line even mean?
                console.log(result);
                 displayResults(result);
             },
