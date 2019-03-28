@@ -16,17 +16,7 @@ function getQueryParameter(name) {
     return false;
 }
 
-//copy me into your script to get a query parameter
-function getQueryParameter(name)
-{
-    var query = window.location.search.substring(1);
-    var vars = query.split("&");
-    for (var i=0;i<vars.length;i++) {
-        var pair = vars[i].split("=");
-        if(pair[0] == name){return pair[1];}
-    }
-    return false;
-}
+
 
 //song rank, artist name, song name, audio preview, album name, album art //
 $(document).ready(function(){
