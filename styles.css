@@ -41,3 +41,12 @@ h1 {
     font-weight:bold;
 }
 
+#tbl {
+    font-family:"Verdana";
+    color: black;
+    position: center;
+}
+
+#2 {
+    background: black;
+}

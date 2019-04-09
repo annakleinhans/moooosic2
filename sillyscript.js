@@ -28,10 +28,10 @@ function displayResults(json){
     var min = Math.floor(x/60);
     var sec = Math.floor(x)%60;
 
-    var tbl = '<br><table class="table table-striped">';
+    var tbl = '<br><table id="tbl" class="table table-striped">';
 
         tbl+= "<tr><td>"; /*this is the beginning of a cell and row */
-        tbl += "<img src='" + songObject.artworkUrl100 + "'>";
+        tbl += "<img id='art' src='" + songObject.artworkUrl100 + "'>";
         tbl += "</td><tr/><tr><td>";  /*this is the beginning of a cell and row */
         tbl += songObject.artistName;
         tbl += "</td></tr><tr><td>"; /*this is the beginning of a cell and row */
