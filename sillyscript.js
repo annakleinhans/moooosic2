@@ -2,7 +2,7 @@ $(document).ready(function(){
     var chosenArtist = getQueryParameter("artist");
     console.log(chosenArtist);
     $.ajax({
-        url: "http://itunes.apple.com/search?artist= " + chosenArtist,
+        url: "http://itunes.apple.com/search?term= " + chosenArtist,
         type: 'GET',
         cressDomain: true,
         dataType: "jsonp",
@@ -10,18 +10,21 @@ $(document).ready(function(){
     });
 });
 
+
+
+
 //release date, track time (m:ss), genre, explicit/notexplicit,
 // link to the apple music page of the album
 function displayResults(json){
 
     var song = getQueryParameter("song");
-
-    var songObject = json[song];
+    song = parseInt(song);
+    var songObject = json.results[song];
 
 
     $("#songInfo").empty();
 
-    var x = (song.trackTimeMillis)/1000;
+    var x = (songObject.trackTimeMillis)/1000;
     var min = Math.floor(x/60);
     var sec = Math.floor(x)%60;
 
@@ -30,24 +33,27 @@ function displayResults(json){
         tbl+= "<tr><td>"; /*this is the beginning of a cell and row */
         tbl += "<img src='" + songObject.artworkUrl100 + "'>";
         tbl += "</td><tr/><tr><td>";  /*this is the beginning of a cell and row */
-        tbl += song.artistName;
+        tbl += songObject.artistName;
         tbl += "</td></tr><tr><td>"; /*this is the beginning of a cell and row */
-        tbl += "<a href='" + song.collectionViewUrl + "'>";
-        tbl += song.trackName;
-        tbl += song.collectionExplicitness;
-        tbl += "</td></tr><tr>,td>";
-        tbl += song.primaryGenreName;
-        tbl += song.releaseDate;
+        tbl += "<a href='" + songObject.collectionViewUrl + "'>";
+        tbl += songObject.trackName;
+        tbl += "</td></tr><tr><td>";
+        tbl += songObject.collectionExplicitness;
+        tbl += "</td></tr><tr><td>";
+        tbl += songObject.primaryGenreName;
+        tbl += "</td></tr><tr><td>";
+        tbl += songObject.releaseDate;
+        tbl += "</td></tr><tr><td>";
         tbl += min + ":" + sec;
         tbl += "</td></tr><tr<td>";
-        tbl += song.collectionName;
+        tbl += songObject.collectionName;
         tbl += "</td></tr><tr><td>";
-        tbl += "<audio controls='true' src='" + song.previewUrl + "' id='audio' type='audio/m4a'></audio>";
+        tbl += "<audio controls='true' src='" + songObject.previewUrl + "' id='audio' type='audio/m4a'></audio>";
         tbl += "</td></tr>";
 
     tbl += "</table>";
 
-    console.log();
+    console.log(songObject);
     $("#songInfo").append(tbl);
 }
 
@@ -59,7 +65,8 @@ function getQueryParameter(name)
     var vars = query.split("&");
     for (var i=0;i<vars.length;i++) {
         var pair = vars[i].split("=");
-        if(pair[0] == name){return pair[1];}
+        if(pair[0] == name){
+            return pair[1];}
     }
     return false;
 }
