@@ -35,7 +35,7 @@ function displayResults(json){
         tbl += "</td><tr/><tr><td>";  /*this is the beginning of a cell and row */
         tbl += songObject.artistName;
         tbl += "</td></tr><tr><td>"; /*this is the beginning of a cell and row */
-        tbl += "<a href='" + songObject.collectionViewUrl + "'>";
+        tbl += "<a href='" + songObject.collectionViewUrl + " ' target='_blank' >";
         tbl += songObject.trackName;
         tbl += "</td></tr><tr><td>";
         tbl += songObject.collectionExplicitness;

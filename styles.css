@@ -42,11 +42,10 @@ h1 {
 }
 
 #tbl {
-    font-family:"Verdana";
+    font-family: "Verdana";
     color: black;
     position: center;
 }
 
-#2 {
-    background: black;
+#title  {
 }
