@@ -2,7 +2,7 @@ $(document).ready(function(){
     var chosenArtist = getQueryParameter("artist");
     console.log(chosenArtist);
     $.ajax({
-        url: "http://itunes.apple.com/search?term= " + chosenArtist,
+        url: "https://itunes.apple.com/search?term= " + chosenArtist,
         type: 'GET',
         cressDomain: true,
         dataType: "jsonp",

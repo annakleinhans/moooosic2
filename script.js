@@ -25,7 +25,7 @@ $(document).ready(function(){
     $("#findSongs").click(function(){
         $("#instructions").show();
         $.ajax({
-            url: "http://itunes.apple.com/search?term=" + $("#artist").val() + "&limit=" + $("#numbSongs").val(),
+            url: "https://itunes.apple.com/search?term=" + $("#artist").val() + "&limit=" + $("#numbSongs").val(),
             type: 'GET',
             cressDomain: true,
             dataType: "jsonp",
